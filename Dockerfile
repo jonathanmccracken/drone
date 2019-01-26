@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:sdk AS build-env
+FROM microsoft/dotnet:2.2.103-sdk-alpine3.8 AS build-env
 WORKDIR /app
 
 # Copy everything else and build
@@ -6,7 +6,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
-FROM microsoft/dotnet:aspnetcore-runtime
+FROM microsoft/dotnet:2.1.7-aspnetcore-runtime-alpine3.7
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "drone.dll"]
