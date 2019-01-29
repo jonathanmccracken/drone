@@ -7,14 +7,14 @@ steps:
   commands:
     - "dotnet test"
 
-- name: build
-  image: microsoft/dotnet:2.2.103-sdk-alpine3.8
-  environment:
-    CGO_ENABLED: "0"
-    VERSION: "${DRONE_TAG}"
-    COMMIT: "${DRONE_COMMIT_SHA:0:7}"
-  commands:
-    - "docker build -t drone-api ."
+- name: docker  
+  image: plugins/docker
+  settings:
+    username: 
+        from_secret: username
+    password: 
+        from_secret: password
+    repo: jmccracken/drone-api
   
 - name: publish
   image: plugins/docker
