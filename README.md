@@ -6,6 +6,6 @@
 
 ##Publish
 
-Deploy to Sandbox
+##Deploy to Sandbox
 
 Deploy to Prod
