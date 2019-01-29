@@ -1,9 +1,10 @@
-# drone example build pipeline
-Test
+# Drone Example Build Pipeline
 
-Build
+##Test
 
-Publish
+##Build
+
+##Publish
 
 Deploy to Sandbox
 
