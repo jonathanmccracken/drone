@@ -1,8 +1,8 @@
 FROM microsoft/dotnet:2.2.103-sdk-alpine3.8 AS build-env
 WORKDIR /app
 
-# Copy everything else and build
-COPY . ./
+# Copy from local computer to container
+COPY src ./
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
