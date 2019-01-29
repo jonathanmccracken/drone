@@ -15,6 +15,7 @@ steps:
     password: 
         from_secret: password
     repo: jmccracken/drone-api
+    dockerfile: src/Dockerfile
   
 - name: publish
   image: plugins/docker
