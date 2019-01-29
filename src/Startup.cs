@@ -40,7 +40,6 @@ namespace drone
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

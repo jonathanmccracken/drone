@@ -16,7 +16,8 @@ steps:
         from_secret: password
     repo: jmccracken/drone-api
     auto_tag: true
-  
-- name: publish
-  image: plugins/docker
-  repo: jmccracken/drone-api
+    
+- name: deploy
+  image: lachlanevenson/k8s-kubectl
+  commands:
+    - "kubectl apply -f deployment.yaml"
