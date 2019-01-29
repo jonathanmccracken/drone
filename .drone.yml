@@ -1,17 +1,21 @@
-﻿pipeline:
-  test:
-    image: microsoft/dotnet:2.2.103-sdk-alpine3.8
-    commands:
-      - "dotnet test"
+kind: pipeline
+name: default
 
-  build:
-    image: microsoft/dotnet:2.2.103-sdk-alpine3.8
-    environment:
-      CGO_ENABLED: "0"
-      VERSION: "${DRONE_TAG}"
-      COMMIT: "${DRONE_COMMIT_SHA:0:7}"
-    commands:
-      - "docker build -t drone-api ."
-  publish:
-    image: plugins/docker
-    repo: jmccracken/drone-api
+steps:
+- name: test
+  image: microsoft/dotnet:2.2.103-sdk-alpine3.8
+  commands:
+    - "dotnet test"
+
+- name: build
+  image: microsoft/dotnet:2.2.103-sdk-alpine3.8
+  environment:
+    CGO_ENABLED: "0"
+    VERSION: "${DRONE_TAG}"
+    COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+  commands:
+    - "docker build -t drone-api ."
+  
+- name: publish
+  image: plugins/docker
+  repo: jmccracken/drone-api
