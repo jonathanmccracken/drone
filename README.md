@@ -3,10 +3,6 @@
 ## Test
 run unit tests
 
-## Build
+## Containerize
 
-## Publish
-
-## Deploy to Sandbox
-
-## Deploy to Prod
+## Deploy to Dev
