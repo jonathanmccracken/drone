@@ -7,7 +7,7 @@ steps:
   commands:
     - "dotnet test"
 
-- name: docker  
+- name: containerize  
   image: plugins/docker
   settings:
     username: 
@@ -17,7 +17,14 @@ steps:
     repo: jmccracken/drone-api
     auto_tag: true
     
-- name: deploy
-  image: lachlanevenson/k8s-kubectl
-  commands:
-    - "kubectl apply -f deployment.yaml"
+deploy:
+    image: jmccracken/drone-api
+    tag: latest
+    kubernetes_server: 
+        from_secret: kube_server
+    kubernetes_token: 
+        from_secret: kube_token
+    namespace: default
+    deployment: drone-api
+    repo: jmccracken/drone-api
+    container: drone-api
