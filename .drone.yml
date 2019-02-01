@@ -7,6 +7,7 @@ steps:
   commands:
     - "dotnet test"
 
+# plugin docs - http://plugins.drone.io/drone-plugins/drone-docker/
 - name: containerize  
   image: plugins/docker
   settings:
@@ -16,9 +17,10 @@ steps:
         from_secret: password
     repo: jmccracken/drone-api
     tags: dev
-    
+
+# plugin docs -  http://plugins.drone.io/mactynow/drone-kubernetes/   
 - name: deploy-to-dev
-  image: jmccracken/drone-api
+  image: quay.io/honestbee/drone-kubernetes
   tag: latest
   kubernetes_server: 
     from_secret: kube_server
