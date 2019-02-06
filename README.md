@@ -8,3 +8,5 @@ build container
 
 ## Deploy to Dev
 push container to dev cluster
+
+test
