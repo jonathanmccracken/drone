@@ -11,7 +11,7 @@ namespace drone.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "hello", "friend", "how are you" };
+            return new string[] { "hello", "friend" };
         }
 
         // GET api/values/5
