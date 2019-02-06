@@ -21,7 +21,7 @@ steps:
 # plugin docs -  http://plugins.drone.io/mactynow/drone-kubernetes/   
 - name: deploy-to-dev
   image: quay.io/honestbee/drone-kubernetes
-  tag: latest
+  tag: dev
   kubernetes_server: 
     from_secret: kube_server
   kubernetes_token: 
